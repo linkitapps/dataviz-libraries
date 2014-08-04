@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Total: </label>
+          <div class="col-sm-10">
+            <p class="form-control-static">{{filteredLibrary.length}}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-offset-2 col-xs-5">
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Search: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="" ng-model="search">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- authRequired -->
+      <button class="btn btn-danger btn-lg" ng-if="auth.user" ng-click="openLibraryModal('save')">Add</button>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th ng-click="sort('name')">
+              이름
+              <i class="fa" ng-class="{'fa-caret-down': isSortUp('name'), 'fa-caret-up': isSortDown('name')}"></i>
+            </th>
+            <th>
+              용도
+            </th>
+            <th ng-click="sort('element')">
+              Element
+              <i class="fa" ng-class="{'fa-caret-down': isSortUp('element'), 'fa-caret-up': isSortDown('element')}"></i>
+            </th>
+            <th>IE8</th>
+            <th  ng-click="sort('price')">
+              가격
+              <i class="fa" ng-class="{'fa-caret-down': isSortUp('price'), 'fa-caret-up': isSortDown('price')}"></i>
+            </th>
+            <!-- <th>비교</th> -->
+            <th>연관</th>
+            <th>데모</th>
+            <th>웹</th>
+            <th ng-if="auth.user">수정</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in filteredLibrary = (library | filter:{name : search} | orderBy:sortField:reverse)">
+            <td>{{$index+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.usage}}</td>
+            <td>{{item.element}}</td>
+            <td>
+              <i ng-if="item.isSupportIE8" class="fa fa-check-circle-o fa-2x"></i> 
+              <i ng-if="!item.isSupportIE8" class="fa fa-ban fa-2x text-danger"></i>
+            </td>
+            <td>{{item.price}}</td>
+            <!-- <td>{{item.description}}</td> -->
+            <td>{{item.relation}}</td>
+            <td><a href="{{item.demoURL}}" target="_blank" ><i class="fa fa-video-camera fa-2x"></i></a></td>
+            <td><a href="{{item.webURL}}"  target="_blank" ><i class="fa fa-laptop fa-2x"></i></a></td>
+            <td ng-if="auth.user">
+              <button class="btn btn-default" ng-click="openLibraryModal('edit', item.$id, $index)"><i class="fa fa-pencil"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

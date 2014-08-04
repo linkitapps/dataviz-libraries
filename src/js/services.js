@@ -1,0 +1,1 @@
+angular.module('app.services', ['app.service.firebase', 'app.service.fbSimpleLogin']);

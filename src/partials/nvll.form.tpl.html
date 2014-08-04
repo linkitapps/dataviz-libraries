@@ -1,0 +1,31 @@
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="이름" ng-model="item.name">
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="용도" ng-model="item.usage">
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="데모 URL" ng-model="item.demoURL">
+</div>
+<div class="form-group">
+  <select class="form-control" ng-model="item.element" ng-options="element.name as element.name for element in elementList">
+    <option value="">-- 선택하세요. --</option>
+  </select>
+</div>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" ng-model="item.isSupportIE8"> IE8 지원
+  </label>
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="가격" ng-model="item.price">
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="비교" ng-model="item.description">
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="연관" ng-model="item.relation">
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="웹사이트" ng-model="item.webURL">
+</div>

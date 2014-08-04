@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>DVLL</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/<%= grunt.config.get('pkg.name') %>.js"></script>
+</head>
+<body>
+  <div ng-include="'partials/navbar.tpl.html'" ng-controller="NavbarCtrl"></div>
+  <div ng-view></div>
+</body>
+</html>

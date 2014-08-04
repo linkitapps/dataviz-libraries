@@ -1,0 +1,26 @@
+{
+  "name": "dataviz-libraries",
+  "version": "0.0.1",
+  "authors": [
+    "Link It & GimYoungPhil"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "~1.0.18",
+    "firebase-simple-login": "~1.6.2",
+    "angular": "~1.2.21",
+    "angular-route": "~1.2.21",
+    "angular-ui-bootstrap-bower": "~0.11.0",
+    "angularfire": "~0.8.0",
+    "d3": "~3.4.11",
+    "bootstrap": "~3.2.0",
+    "fontawesome": "~4.1.0"
+  }
+}
